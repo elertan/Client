@@ -105,6 +105,10 @@ class AppLogic {
         this.loginPage.loginButton.disabled = true;
         alert(appLogic.translate("errorLogin"))
     }
+    failServerFull() {
+        this.loginPage.loginButton.disabled = true;
+        alert(appLogic.translate("errorServerFull"))
+    }
     showLoginPage() {
         this.loginPage.loginButton.disabled = false;
         this.viewDiv.appendChild(this.loginPage.getDiv());
@@ -191,7 +195,7 @@ class AppLogic {
 
 function chooseLang() {
     console.log(navigator.language)
-    var availableLang = ['es', 'ro', 'en', 'de', 'tr', 'fr']
+    var availableLang = ['en', 'es', 'ro', 'de', 'tr', 'fr', 'pt']
     if (availableLang.indexOf(navigator.language) >= 0) {
         selectedLang = availableLang[availableLang.indexOf(navigator.language)];
     }

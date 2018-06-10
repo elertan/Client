@@ -10,6 +10,7 @@ module.exports = {
     errorNoNickname: "Type your nickname",
     errorNoPassword: "Please, type your password",
     errorLogin: "Something went wrong while trying to login. Did you write your password well?",
+    errorServerFull: "The server is full! Wait and try again later",
     selectSkin: "Select Skin",
     selectYourSkin: "Select your skin",
     typeText: "Type text...",

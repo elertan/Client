@@ -10,6 +10,7 @@ module.exports = {
     errorNoNickname: "Te rugăm să introduci numele tău!",
     errorNoPassword: "Te rugăm să introduci parola contului tău!",
     errorLogin: "Ceva nu a mers bine când ai încercat să te loghezi! Ești sigur că ai scris parola corect?",
+    errorServerFull: "The server is full! Wait and try again later",
     selectSkin: "Alege un skin",
     selectYourSkin: "Alegeți skinul",
     typeText: "Scrie ceva...",
