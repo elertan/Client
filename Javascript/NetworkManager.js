@@ -35,6 +35,9 @@ class NetworkManager {
                 case "failServerFull": {
                     this.appLogic.failServerFull();
                 } break;
+                case "errorNotOwner": {
+                    this.appLogic.failNotOwner();
+                } break;
                 case "Online List": { //{message: "Online List", players: {id:Number, name: String}}
                     this.onlinePlayers = [];
                     var players = message['players'];

@@ -109,6 +109,9 @@ class AppLogic {
         this.loginPage.loginButton.disabled = true;
         alert(appLogic.translate("errorServerFull"))
     }
+    failNotOwner() {
+        alert(appLogic.translate("errorNotOwner"))
+    }
     showLoginPage() {
         this.loginPage.loginButton.disabled = false;
         this.viewDiv.appendChild(this.loginPage.getDiv());

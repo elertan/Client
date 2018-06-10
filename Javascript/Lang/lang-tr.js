@@ -9,6 +9,7 @@ module.exports = {
     errorNicknameTooLong: "Kullanıcı adınız çok uzun",
     errorNoNickname: "Kullanıcı adınızı girin",
     errorNoPassword: "Lütfen şifrenizi girin",
+    errorNotOwner: "Sorry, only the lobby creator can start the game!",
     errorLogin: "Giriş yapmaya çalışırken bir şeyler ters gitti. Şifrenizi doğru yazdınız mı?",
     errorServerFull: "The server is full! Wait and try again later",
     selectSkin: "Kostüm Seçin",

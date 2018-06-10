@@ -9,6 +9,7 @@ module.exports = {
     errorNicknameTooLong: "Seu nome de usuário é muito longo",
     errorNoNickname: "Digite seu nome de usuário",
     errorNoPassword: "Por favor, digite sua senha",
+    errorNotOwner: "Desculpe, somente o criador do lobby pode começar o jogo!",
     errorLogin: "Algo deu errado enquanto você tentava fazer o login. Você escreveu a senha certa?",
     errorServerFull: "O servidor está cheio! Espere e tente novamente mais tarde",
     selectSkin: "Selecionar skin",

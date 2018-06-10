@@ -3,7 +3,7 @@
   "productName": "League Of Memories",
   "version": "0.5.2",
   "description": "League of Memories - A modded League of Legends 4.20 server",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "author": "LeagueOfMemories",
   "scripts": {
     "test": "xo",
@@ -68,11 +68,11 @@
     },
     "win": {
       "target": "squirrel",
-      "iconUrl": "https://raw.githubusercontent.com/Deudly/LeagueOfMemoriesRELEASE/master/leaguememories.ico",
+      "iconUrl": "https://raw.githubusercontent.com/LeagueofMemories/Releases/master/leaguememories.ico",
       "icon": "assets/icon"
     },
     "squirrelWindows": {
-      "iconUrl": "https://raw.githubusercontent.com/Deudly/LeagueOfMemoriesRELEASE/master/leaguememories.ico"
+      "iconUrl": "https://raw.githubusercontent.com/LeagueofMemories/Releases/master/leaguememories.ico"
     },
     "icon": "assets/icon"
   },

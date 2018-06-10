@@ -43,12 +43,6 @@ function MainPage(appLogic) {
                                 this.lobbyPog = (this.lobbyPage = new CDNdownloader(this.appLogic)).getDiv()
                             ]
                         }),
-                        CreateElement({
-                            type: 'div', class: 'MainPage_ChatBox', elements: [
-                                this.chatBoxDiv = CreateElement({ type: 'div', class: 'MainPage_ChatBoxDiv' }),
-                                this.chatBoxInput = CreateElement({ type: 'input', class: 'MainPage_ChatBoxInput' }),
-                            ]
-                        }),
                     ]
             }),
 
@@ -60,9 +54,6 @@ function MainPage(appLogic) {
     }
 
     this.championSelect.value = "Ezreal";
-
-    this.chatBoxInput.placeholder = appLogic.translate("typeText");
-    this.chatBoxInput.onkeydown = CreateFunction(this, this.chatInputKeyDown);
 
     /*this.blockingOverlay = CreateElement({type: 'div', class: 'MainPage_BlockOverlay', text: 'Game Console', elements: [
         this.startingGameDiv = CreateElement({type: 'div', class: 'MainPage_StartingGame'}),

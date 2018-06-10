@@ -9,6 +9,7 @@ module.exports = {
     errorNicknameTooLong: "Numele tău este prea lung!",
     errorNoNickname: "Te rugăm să introduci numele tău!",
     errorNoPassword: "Te rugăm să introduci parola contului tău!",
+    errorNotOwner: "Sorry, only the lobby creator can start the game!",
     errorLogin: "Ceva nu a mers bine când ai încercat să te loghezi! Ești sigur că ai scris parola corect?",
     errorServerFull: "The server is full! Wait and try again later",
     selectSkin: "Alege un skin",
