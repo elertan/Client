@@ -10,6 +10,7 @@ module.exports = {
     errorNoNickname: "Gebe deinen Benutzername ein",
     errorNoPassword: "Bitte gebe dein Passwort ein",
     errorLogin: "Login fehlgeschlagen. Bitte überprüfe dein Passwort",
+    errorServerFull: "The server is full! Try again later",
     selectSkin: "Skin auswählen",
     selectYourSkin: "Wähle einen Skin",
     typeText: "Nachricht eingeben...",

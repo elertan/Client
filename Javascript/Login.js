@@ -31,6 +31,8 @@ function Login(appLogic) {
 
     if (localStorage.getItem("path") != undefined && localStorage.getItem("path") != "") {
         this.leaguePathInput.value = localStorage.getItem("path");
+    } else {
+        this.leaguePathInput.value = "C:\/League-of-Legends-4-20\/";
     }
     if (localStorage.getItem("name") != undefined && localStorage.getItem("name") != "") {
         this.nicknameInput.value = localStorage.getItem("name");

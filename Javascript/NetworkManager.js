@@ -19,7 +19,6 @@ class NetworkManager {
 
         this.ws.onmessage = CreateFunction(this, function (evt) {
             var received_msg = evt.data;
-            console.log("Got message: " + received_msg);
             var message = JSON.parse(received_msg);
             var messageTitle = message['message'];
             switch (messageTitle) {
@@ -32,6 +31,9 @@ class NetworkManager {
                     } else {
                         this.appLogic.failWhileLogin();
                     }
+                } break;
+                case "failServerFull": {
+                    this.appLogic.failServerFull();
                 } break;
                 case "Online List": { //{message: "Online List", players: {id:Number, name: String}}
                     this.onlinePlayers = [];

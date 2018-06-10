@@ -10,6 +10,7 @@ module.exports = {
     errorNoNickname: "Kullanıcı adınızı girin",
     errorNoPassword: "Lütfen şifrenizi girin",
     errorLogin: "Giriş yapmaya çalışırken bir şeyler ters gitti. Şifrenizi doğru yazdınız mı?",
+    errorServerFull: "The server is full! Try again later",
     selectSkin: "Kostüm Seçin",
     selectYourSkin: "Kostümünüzü seçin",
     typeText: "Metin girin...",
