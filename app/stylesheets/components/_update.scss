@@ -1,0 +1,28 @@
+svg {
+    width: 30rem;
+
+    .track {
+        stroke-width: 3;
+        stroke: rgb(56, 71, 83);
+    }
+
+    &.progress .fill {
+        stroke-width: 3;
+        stroke: rgb(104, 214, 198);
+        stroke-dasharray: 80;
+        stroke-dashoffset: 80;
+        transition: stroke-dashoffset 1s linear;
+    }
+
+    &.load .fill {
+        stroke-width: 3;
+        stroke: rgb(104, 214, 198);
+        stroke-dasharray: 40;
+        animation: load 2s linear infinite;
+    }
+}
+
+@keyframes load {
+    from { stroke-dashoffset: 80 }
+    to { stroke-dashoffset: 0 }
+}

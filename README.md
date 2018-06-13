@@ -1,19 +1,15 @@
-# League of Memories Client
+# LoM-React-Client
 
-Client used to connect to [LoM Server](https://github.com/LeagueofMemories/LoMServer) and starting games, choosing champion, chatting...
+Rewrite of the VanillaJS-Electron LoM Client
 
-## What's League of Memories?
+## Installing
+Run yarn to install all node packages
+```sh
+yarn
+```
 
-League of Memories is a server running LeagueSandbox thats aims to have a functional old League of Legends, with some custom content created by the community and custom gamemodes.
-
-### Interesting Links
-- [League of Memories Discord server](https://discord.gg/ZQ87ue5)
-- [LoM Client Server-Side](https://github.com/LeagueofMemories/LoMServer)
-- [GameServer](https://github.com/LeagueofMemories/GameServer)
-
-## Contribute
-
-In order to contribute in the development of LoM Client you need to know:
-- HTML and CSS
-- Javascript
-- NodeJS
+## Run
+This command will run the application in dev mode, beware that the updater will automatically start downloading files.
+```sh
+npm run dev
+```
