@@ -130,15 +130,6 @@ MainPage.prototype.chatInputKeyDown = function (e) {
     }
 };
 
-MainPage.prototype.addToChat = function (chat) {
-    var oldHeight = this.chatBoxDiv.scrollHeight;
-    this.chatBoxDiv.innerText += chat + '\n';
-    window.requestAnimationFrame(CreateFunction(this, function () {
-        var newHeight = this.chatBoxDiv.scrollHeight;
-        this.chatBoxDiv.scrollTop += newHeight - oldHeight;
-    }));
-};
-
 MainPage.prototype.updateOnlineList = function () {
     while (this.onlineBoxDiv.hasChildNodes()) {
         this.onlineBoxDiv.removeChild(this.onlineBoxDiv.lastChild);

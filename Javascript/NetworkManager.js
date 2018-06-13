@@ -190,6 +190,7 @@ class NetworkManager {
     };
 
     sendNickname() {
+        console.log("reng")
         this.send({ message: "Nickname", name: this.appLogic.appData.nickname });
     };
 

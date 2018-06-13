@@ -23,10 +23,10 @@ function Login(appLogic) {
     var isWindows = process.platform === 'win32';
     var isMac = process.platform === 'darwin';
     if (isWindows) {
-        this.leaguePathInput.placeholder = 'C:\/League-of-Legends-4-20\/';
+        this.leaguePathInput.placeholder = 'C:\/League-of-Memories\/';
     }
     if (isMac) {
-        this.leaguePathInput.placeholder = '\/League of Legends.app';
+        this.leaguePathInput.placeholder = '\/League of Memories.app';
     }
 
     if (localStorage.getItem("path") != undefined && localStorage.getItem("path") != "") {
@@ -58,7 +58,8 @@ Login.prototype.loginButtonClicked = function () {
     localStorage.setItem("key", this.keyInput.value);
 
     if (this.leaguePathInput.value.length <= 0) {
-        alert(appLogic.translate("errorLeaguePathLength"));
+        this.appLogic.appData.leaguePath = this.leaguePathInput.placeholder;
+        localStorage.setItem("path", this.leaguePathInput.placeholder);
         return;
     }
     if (this.nicknameInput.value.length > 16) {
