@@ -38,19 +38,9 @@ class Update extends Component<Props> {
     const progressStyle = {
       strokeDashoffset: `${80 - (update.progress * 0.8)}px`
     };
-    let updateText = "";
-    if (update.isCheckingForUpdates) {
-      updateText = "Checking for updates...";
-    }
-    if (update.isUpdating) {
-      updateText = `Updating ${update.progress}% (${update.completedUpdateFiles.length} / ${update.totalUpdateFiles})`;
-    }
-    if (update.canLogin) {
-      updateText = "Ready...";
-    }
     return (
       <div>
-        <p>{updateText}</p>
+        <p>{update.updateText}</p>
         <svg className={classes} viewBox="0 0 80 3">
           <path className="track" d="M0,0 h80"/>
           <path className="fill" d="M0,0 h80" style={progressStyle}/>
