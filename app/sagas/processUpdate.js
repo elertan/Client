@@ -10,27 +10,35 @@ import config from "../config";
 function* processUpdateWatcher() {
   const action = yield take(actions.UPDATE_FOUND);
   yield call(processUpdateWorker, action);
+  yield put(actions.updatesDone());
 }
 
 // Worker saga to start the update process (Triggers on UPDATE_FOUND action)
-function* processUpdateWorker(action: {
-  type: string,
-  payload: UpdateEntry[]
-}) {
+function* processUpdateWorker(action: { type: string, payload: UpdateEntry[] }) {
   try {
     yield all([...action.payload.map(entry => call(processFile, entry))]);
-    // yield all([...action.payload.slice(0, 1).map(entry => call(processFile, entry))]); // Testing
-    yield put(actions.updatesDone());
+    // yield all([...action.payload.slice(0, 10).map(entry => call(processFile, entry))]); // Testing
   } catch (err) {
-    console.log("PROCESS_UPDATE_WORKER ERR", err);
+    yield put(actions.updateError(err.toString()));
   }
 }
 
-function* processFile(entry: UpdateEntry) {
-  yield put(yield doSomething(entry));
+function* processFile(entry: UpdateEntry, maxDepth = 5) {
+  try {
+    yield put(yield downloadAndWriteFile(entry));
+  } catch (err) {
+    // Promise was rejected, file is corrupt. Try again
+    if (maxDepth === 0) {
+      // If the file is still corrupt after 5 tries cancel the update.
+      // Indication of something wrong
+      // TODO: Create a logger to generate a log file
+      throw Error(`FILE_CORRUPTION: MD5: ${entry.md5}`);
+    }
+    yield call(processFile, entry, maxDepth - 1);
+  }
 }
 
-function doSomething(entry) {
+function downloadAndWriteFile(entry) {
   return new Promise((resolve, reject) => {
     const fileName = entry.path.split("\\").slice(-1).pop();
     const saveDirectory = `${process.cwd()}/${config.GAME_FOLDER}/${fileName}`;
@@ -45,7 +53,7 @@ function doSomething(entry) {
 
     // Update the hash (digest hash on end and check if file isn't corrupted)
     req.on("data", data => {
-      // hash.update(`${data}1`); // Test: Corrupt the md5
+      // hash.update(`${data}`); // Test: Corrupt the md5
       hash.update(data);
     });
 
@@ -59,7 +67,6 @@ function doSomething(entry) {
         );
       } else {
         // If hashes aren't equal the file is corrupt, reject the promise
-        // TODO: Add the file to queue again
         reject();
       }
     });
