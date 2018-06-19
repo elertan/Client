@@ -96,8 +96,6 @@ class AppLogic {
         this.loginPage.getDiv().remove();
         this.showMainPage();
         this.updateGame();
-        this.mainPage.addToChat(appLogic.translate("connectedAs") + " " + this.appData.nickname);
-        this.mainPage.addToChat(appLogic.translate("useDiscord"));
         this.networkManager.sendNickname();
         this.networkManager.sendKey(this.appData.key);
     }

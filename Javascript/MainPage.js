@@ -91,6 +91,7 @@ MainPage.prototype.setBlockOverlayOff = function () {
 
 MainPage.prototype.championSelectChange = function () {
     var champion = this.championSelect.value;
+    ipc.send("update-notify-value", champion);
     this.selectedSkin = 0;
     this.appLogic.networkManager.sendChampionSelectChange(champion);
     this.skinChange();
@@ -128,15 +129,6 @@ MainPage.prototype.chatInputKeyDown = function (e) {
         this.appLogic.networkManager.sendChat(this.chatBoxInput.value);
         this.chatBoxInput.value = "";
     }
-};
-
-MainPage.prototype.addToChat = function (chat) {
-    var oldHeight = this.chatBoxDiv.scrollHeight;
-    this.chatBoxDiv.innerText += chat + '\n';
-    window.requestAnimationFrame(CreateFunction(this, function () {
-        var newHeight = this.chatBoxDiv.scrollHeight;
-        this.chatBoxDiv.scrollTop += newHeight - oldHeight;
-    }));
 };
 
 MainPage.prototype.updateOnlineList = function () {
@@ -192,11 +184,14 @@ MainPage.prototype.getDiv = function () {
 };
 
 var ChampionList = [
+    "Akali",
     "Blitzcrank",
     "Caitlyn",
     "Evelynn",
     "Ezreal",
     "Graves",
+    "Katarina",
+    "MasterYi",
     "MissFortune",
     "Lucian",
     "Lulu",

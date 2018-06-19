@@ -38,6 +38,7 @@ class LobbyPage {
         this.lobbies = [];
     };
     startGame(lobbyID) {
+        ipc.send("update-notify-value", "start");
         this.appLogic.networkManager.sendStartGame(lobbyID);
     };
 
@@ -46,6 +47,7 @@ class LobbyPage {
 
         if (name != null) {
             this.appLogic.networkManager.sendCreateLobby(name);
+            ipc.send("update-notify-value", "lobby");
         }
     };
 
@@ -59,6 +61,7 @@ class LobbyPage {
     lobbyClicked(lobby) {
         if (lobby.id == this.appLogic.networkManager.selfLobbyID) return;
         this.appLogic.networkManager.sendEnterLobby(lobby.id);
+        ipc.send("update-notify-value", "lobby");
     };
 
     updateSelfDisplay(hasStartedGame) {
@@ -116,6 +119,7 @@ class LobbyPage {
 
     leaveLobby() {
         this.appLogic.networkManager.sendLeaveLobby();
+        ipc.send("update-notify-value", "menu");
     };
 
     updateLobby(id, name, blueSide, redSide, gameServerRepository) {

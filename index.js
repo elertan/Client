@@ -5,6 +5,7 @@ const protocol = electron.protocol;
 const isDev = require("electron-is-dev");
 var ipcMain;
 
+const client = require("discord-rich-presence")("456118942725963787");
 const updater = require('electron-simple-updater');
 
 
@@ -14,7 +15,7 @@ app.on("ready", () => {
         dialog.showMessageBox({ type: 'info', message: text, buttons: ['Okay'] }, function (buttonIndex) {
         });
     };
-    
+
     if (!isDev) {
         updater.init({
             checkUpdateOnStart: true,
@@ -28,22 +29,27 @@ app.on("ready", () => {
     updater.on("update-available", function (meta) {
         alert("Good news, we found an update! " + meta)
     })
-    updater.on("update-downloading", function(meta){
+    updater.on("update-downloading", function (meta) {
         alert("We have just started to download the update")
     })
-    updater.on("update-downloaded", function(meta){
+    updater.on("update-downloaded", function (meta) {
         alert("Yay! We are ready to apply the update");
         updater.quitAndInstall();
     })
     ipcMain = electron.ipcMain;
     let mainWindow = createMainWindow();
-    if (isDev){
+    if (isDev) {
         mainWindow.openDevTools({ detach: true });
     }
+    client.updatePresence({
+        details: "In the menus",
+        largeImageKey: "lom",
+        instance: true
+    });
 
     protocol.registerFileProtocol('atom', (request, callback) => {
         const url = request.url.substr(7)
-        callback({path: path.normalize(`${__dirname}/${url}`)})
+        callback({ path: path.normalize(`${__dirname}/${url}`) })
     }, (error) => {
         if (error) console.error('Failed to register protocol')
     })
@@ -61,7 +67,7 @@ function createMainWindow() {
         backgroundColor: 'black',
         show: false,
         titleBarStyle: 'hidden',
-        icon:'assets/icon.png'
+        icon: 'assets/icon.png'
     });
 
     ipcMain.on('async', (event, arg) => {
@@ -77,13 +83,15 @@ function createMainWindow() {
     win.webContents.on('dom-ready', ()=>{
         win.show();
     });*/
-/*
-    win.once('ready-to-show', ()=> {
-        setTimeout(function(){win.show();}, 1000);
-    });*/
+    /*
+        win.once('ready-to-show', ()=> {
+            setTimeout(function(){win.show();}, 1000);
+        });*/
 
     win.loadURL(`file://${__dirname}/index.html`);
     win.on('closed', onClosed);
+    
+    var champion = "Ezreal"
 
     var promptResponse
     ipcMain.on('prompt', function (eventRet, arg) {
@@ -110,6 +118,33 @@ function createMainWindow() {
             promptWindow = null
         })
     })
+    ipcMain.on("update-notify-value", function (event, arg) {
+        console.log(arg);
+        if (arg == "lobby") {
+            client.updatePresence({
+                details: "In lobby",
+                largeImageKey: "lom",
+                instance: true
+            });
+        }
+        else if (arg == "menu") {
+            client.updatePresence({
+                details: "In the menus",
+                largeImageKey: "lom",
+                instance: true
+            });
+        } else if (arg = "start"){
+            client.updatePresence({
+                details: "In game",
+                state: 'Playing ' + champion,
+                largeImageKey: champion.toLowerCase(),
+                smallImageKey: 'lom',
+                instance: true
+            });
+        } else {
+            champion = arg;
+        }
+    });
     ipcMain.on('prompt-response', function (event, arg) {
         if (arg === '') {
             arg = null
@@ -117,7 +152,7 @@ function createMainWindow() {
         promptResponse = arg
     })
 
-    setTimeout(function(){win.show();}, 5000);
+    setTimeout(function () { win.show(); }, 5000);
 
     return win;
 }
