@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Header from './Home/Header';
 
 let styles = require('./Home.scss');
 
@@ -7,7 +8,7 @@ export default class Home extends React.Component {
     return (
       <div>
         <div className={styles.container} data-tid="container">
-          <h2>Home</h2>
+          <Header />
         </div>
       </div>
     );

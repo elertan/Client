@@ -1,0 +1,51 @@
+:local {
+  .container {
+    height: 75px;
+    background: rgb(17, 28, 45);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .headerImage {
+    background: url(../../assets/img/logo.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+    margin-left: 10px;
+    width: 100px;
+  }
+
+  .statusContainer {
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    background-color: darkslategrey;
+  }
+
+  .playButton {
+    background-color: red;
+    width: 125px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px;
+  }
+
+  .userContainer {
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    background-color: darkslategrey;
+  }
+
+  .leftSpace {
+    flex: 1;
+  }
+}
