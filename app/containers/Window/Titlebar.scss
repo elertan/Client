@@ -1,0 +1,10 @@
+:local {
+  .container {
+    height: 20px;
+    color: white;
+    padding: 4px;
+    font-size: 11px;
+    width: '100%';
+    -webkit-app-region: drag;
+  }
+}
