@@ -1,3 +1,8 @@
+# League of Memories Client
+
+This repo contains the source code to build the client app.
+The boilerplate for the app can be found below.
+
 # electron-react-typescript-boilerplate
 
 [![Build Status][travis-image]][travis-url]
