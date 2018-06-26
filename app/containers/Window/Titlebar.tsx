@@ -5,7 +5,7 @@ const styles = require('./Titlebar.scss');
 const Titlebar: React.SFC<{}> = (props: {}) => {
   return (
     <div className={styles.container}>
-      League of Memories
+      League of Memories - v0.1.0
     </div>
   );
 };
