@@ -1,16 +1,16 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import reduxThunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'react-router-redux';
-import rootReducer from '../reducers';
+import reducers from '../reducers';
 
 const history = createBrowserHistory();
 const router = routerMiddleware(history);
-const enhancer = applyMiddleware(thunk, router);
+const enhancer = applyMiddleware(reduxThunk, router);
 
 export = {
   history,
   configureStore(initialState: Object | void) {
-    return createStore(rootReducer, initialState, enhancer);
-  }
+    return createStore(reducers, initialState, enhancer);
+  },
 };

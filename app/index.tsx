@@ -11,17 +11,18 @@ render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if ((module as any).hot) {
   (module as any).hot.accept('./containers/Root', () => {
+    // tslint:disable-next-line:variable-name
     const NextRoot = require('./containers/Root').default;
     render(
       <AppContainer>
         <NextRoot store={store} history={history} />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }

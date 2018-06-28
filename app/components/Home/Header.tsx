@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-let styles = require('./Header.scss');
+const styles = require('./Header.scss');
 
 class Header extends React.Component<{}, {}> {
   public render() {

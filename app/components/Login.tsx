@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-let styles = require('./Login.scss');
+const styles = require('./Login.scss');
 
 export default class Home extends React.Component {
   render() {

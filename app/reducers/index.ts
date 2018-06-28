@@ -4,7 +4,7 @@ import counter, { TState as TCounterState } from './counter';
 
 const rootReducer = combineReducers({
   counter,
-  routing: routing as Reducer<any>
+  routing: routing as Reducer<any>,
 });
 
 export interface IState {
