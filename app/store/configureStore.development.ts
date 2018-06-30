@@ -4,6 +4,8 @@ import { createHashHistory } from "history";
 import { push, routerMiddleware } from "react-router-redux";
 import { createLogger } from "redux-logger";
 import reducers from "../reducers";
+import createSagaMiddleware from "redux-saga";
+import sagas from "../sagas";
 
 declare const window: Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?(a: any): void;
@@ -27,6 +29,9 @@ const logger = (<any>createLogger)({
 const history = createHashHistory();
 const router = routerMiddleware(history);
 
+// Saga middleware
+const sagaMiddleware = createSagaMiddleware();
+
 // If Redux DevTools Extension is installed use it, otherwise use Redux compose
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -37,7 +42,7 @@ const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPO
   compose;
 /* eslint-enable no-underscore-dangle */
 const enhancer = composeEnhancers(
-  applyMiddleware(reduxThunk, router, logger)
+  applyMiddleware(reduxThunk, router, logger, sagaMiddleware)
 );
 
 export = {
@@ -50,6 +55,9 @@ export = {
         store.replaceReducer(require("../reducers")) // eslint-disable-line global-require
       );
     }
+
+    // Run saga
+    sagaMiddleware.run(sagas);
 
     return store;
   }

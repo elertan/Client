@@ -1,13 +1,16 @@
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import Login from '../components/Login';
+import * as React from "react";
+import Login, { IProps } from "../components/Login";
+import { AuthState } from "../reducers/auth";
+import { connect, Dispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as AuthActions from "../actions/auth";
 
-export class LoginPage extends React.Component<RouteComponentProps<any>, void> {
-  render() {
-    return (
-      <Login />
-    );
-  }
+function mapStateToProps(state: AuthState): Partial<IProps> {
+  return state;
 }
 
-export default (LoginPage as any as React.StatelessComponent<RouteComponentProps<any>>);
+function mapDispatchToProps(dispatch: Dispatch<AuthState>): Partial<IProps> {
+  return bindActionCreators(AuthActions as any, dispatch);
+}
+
+export default (connect(mapStateToProps, mapDispatchToProps)(Login) as any as React.StatelessComponent<IProps>);
