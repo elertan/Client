@@ -1,0 +1,15 @@
+:local {
+  .container {
+    background: linear-gradient(to bottom, #207cca 17%,#207cca 43%,#1e5799 94%);
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #EEE;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
