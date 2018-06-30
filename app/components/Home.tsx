@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Header from './Home/Header';
 import Button from './UI/Button';
+import { Link } from "react-router-dom";
 
-const styles = require('./Home.scss');
+const styles = require("./Home.scss");
 
 export default class Home extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class Home extends React.Component {
           <Button>
             Button
           </Button>
+          <Link to="/login">go to login</Link>
           {/* <div className={styles.tempBackground}></div> */}
         </div>
       </div>

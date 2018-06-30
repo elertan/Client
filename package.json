@@ -1,5 +1,5 @@
 {
-  "name": "lom-clien",
+  "name": "lom-client",
   "productName": "League of Memories",
   "version": "0.0.1",
   "description": "The client application for League of Memories",
@@ -111,6 +111,7 @@
   ],
   "homepage": "https://www.leagueofmemories.com",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/enzyme": "^3.1.1",
     "@types/history": "^4.5.2",
     "@types/jest": "^22.0.0",
@@ -164,6 +165,8 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "history": "^4.6.1",
@@ -174,6 +177,7 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
+    "redux-saga": "^1.0.0-beta.1",
     "redux-thunk": "^2.1.0",
     "source-map-support": "^0.5.0"
   },
