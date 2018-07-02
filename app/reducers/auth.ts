@@ -10,7 +10,7 @@ export type AuthState = {
 const defaultState: AuthState = {
   error: "",
   loading: false,
-  token: ""
+  token: "",
 };
 
 export default function auth(state = defaultState, action: IActionWithPayload<string>) {

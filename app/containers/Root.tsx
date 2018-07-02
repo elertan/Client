@@ -19,9 +19,10 @@ export default function Root({ store, history }: IRootType) {
   return (
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Window>
-          <Routes />
-        </Window>
+        <div>
+        <Routes />
+        <Window />
+        </div>
       </ConnectedRouter>
     </Provider>
   );

@@ -1,6 +1,6 @@
 :local {
   .container {
-    background: linear-gradient(to bottom, #207cca 17%,#207cca 43%,#1e5799 94%);
+    background: linear-gradient(to bottom, #1a35ad 17%,#2048ca 43%,#183491 94%);
     cursor: pointer;
     border-radius: 3px;
     padding: 5px;
@@ -11,5 +11,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background 2s ease-in-out;
+  }
+  .container:hover {
+    background: linear-gradient(to bottom, #2a44b4 17%,#345ad8 43%,#243c8b 94%);
   }
 }
