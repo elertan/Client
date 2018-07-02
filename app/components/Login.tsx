@@ -2,6 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { AuthState } from '../reducers/auth';
 import Button from './UI/Button';
+import { Link } from 'react-router-dom';
 
 const styles = require('./Login.scss');
 
@@ -11,6 +12,8 @@ export interface IProps extends RouteComponentProps<any>, AuthState {
 
 export default class Home extends React.Component<IProps> {
   render() {
+    // const { login } = this.props;
+
     return (
       <div className={styles.container}>
         <video autoPlay muted loop className={styles.video}>
@@ -38,6 +41,7 @@ export default class Home extends React.Component<IProps> {
                     <Button onClick={() => alert('log in')}>Log In</Button>
                   </div>
                 </div>
+                <Link style={{color: 'skyblue'}} to="/home">Fuck this I want see the homepage</Link>
                 <hr />
                 <div className={styles.bottomActions}>
                   <p>Don't have an account? Sign up now!</p>
