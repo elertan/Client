@@ -3,6 +3,9 @@
 This repo contains the source code to build the client app.
 The boilerplate for the app can be found below.
 
+[![Watch a video preview!](https://puu.sh/APU9e/51a0f54b4f.png)](https://puu.sh/APUPA/3e33982df0.mp4)
+Click image to watch a preview video
+
 # electron-react-typescript-boilerplate
 
 [![Build Status][travis-image]][travis-url]
